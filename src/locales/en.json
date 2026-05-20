@@ -1,0 +1,299 @@
+{
+  "nav": {
+    "wallet": "Wallet",
+    "home": "Home",
+    "profile": "Profile"
+  },
+  "common": {
+    "loading": "Loading...",
+    "loadingEllipsis": "Loading...",
+    "profile": "Profile",
+    "copy": "Copy",
+    "copied": "Copied",
+    "close": "Close",
+    "done": "Done",
+    "total": "Total",
+    "map": "Map"
+  },
+  "language": {
+    "title": "Language",
+    "ru": "Russian",
+    "en": "English"
+  },
+  "profileBar": {
+    "loading": "Loading...",
+    "profileFallback": "Profile",
+    "copyId": "Copy ID"
+  },
+  "profileHeader": {
+    "loading": "Loading...",
+    "loadError": "Failed to load profile",
+    "beginner": "Beginner",
+    "level": "Level {{n}}",
+    "statusDetails": "About status"
+  },
+  "profileMenu": {
+    "referralProgram": "Referral program",
+    "turnover30Days": "30-day turnover",
+    "fullName": "Full name",
+    "telegramId": "Telegram ID",
+    "verification": "Verification",
+    "aboutUs": "About us",
+    "support": "Support",
+    "address": "Address",
+    "rules": "Rules",
+    "loyaltyProgram": "Loyalty program",
+    "language": "Language",
+    "verified": "Verified",
+    "notVerified": "Not verified",
+    "unknownVerification": "Status unknown",
+    "notSpecified": "Not specified"
+  },
+  "serviceRules": {
+    "title": "Service rules",
+    "intro": "Please read our service rules carefully before you continue.",
+    "buyTitle": "Buying USDT",
+    "buyItems": [
+      "USDT purchases are available only to persons strictly over 18.",
+      "Buying USDT on behalf of third parties is prohibited.",
+      "Have a passport with you when purchasing.",
+      "Verification is required for your first purchase."
+    ],
+    "sellTitle": "Selling USDT",
+    "sellItems": [
+      "USDT sales are available only to persons strictly over 18.",
+      "Selling USDT on behalf of third parties is prohibited.",
+      "Have a passport with you when selling.",
+      "Verification is required for your first sale."
+    ],
+    "generalItems": [
+      "Minimum amount for exchange is 10,000 ₽; payments below this will not be processed.",
+      "We accept USDT on the TRC-20 network only.",
+      "Be careful: we are not responsible for USDT sent outside the TRON blockchain network.",
+      "When USDT is credited to our balance, it will be automatically exchanged at the current rate.",
+      "USDT crediting on the TRON network usually takes 3 to 10 minutes."
+    ],
+    "footer": "By continuing to use our service, you confirm that you have read, understood, and fully agree to these rules."
+  },
+  "aboutPage": {
+    "hero": "Welcome to our cryptocurrency exchange bot!",
+    "aboutTitle": "About us",
+    "aboutItems": [
+      "We have been exchanging cryptocurrencies for over 3 years.",
+      "We work for cash rubles only.",
+      "You can buy USDT with no commission at the best rates in Moscow.",
+      "A $3 fee applies when withdrawing USDT on the Tron network."
+    ],
+    "officeTitle": "Our office",
+    "officeItems": [
+      "Moscow, Presnenskaya Embankment 12, Federation-East tower, 77th floor, office 04",
+      "We are here for you from 12:00 to 00:00. No weekends.",
+      "To get an office pass and buy USDT, create a request through the bot."
+    ]
+  },
+  "exchange": {
+    "youPay": "You pay",
+    "youReceive": "You receive",
+    "max": "Max",
+    "swapDirection": "Swap direction",
+    "insufficientFunds": "Insufficient funds",
+    "buyLabel": "BUY",
+    "sellLabel": "SELL",
+    "loading": "Loading...",
+    "minBuyRub": "Minimum purchase amount — {{amount}} ₽",
+    "minSellRub": "Minimum sale amount — {{amount}} ₽",
+    "maxBuyRub": "Maximum purchase amount — {{amount}} ₽",
+    "maxSellRub": "Maximum sale amount — {{amount}} ₽",
+    "createOrder": "Create order"
+  },
+  "checkout": {
+    "summaryYouPay": "You pay",
+    "rateDisclaimer": "This rate is not final"
+  },
+  "confirmPanel": {
+    "readRules": "I have read the",
+    "rules": "rules",
+    "acceptTerms": "and accept the terms of service",
+    "rateNote": "This rate is valid only at the time the order is created. The final rate may differ",
+    "submitting": "Sending…",
+    "submit": "Submit order"
+  },
+  "exchangeCard": {
+    "buy": "Buy",
+    "sell": "Sell",
+    "order": "Order #{{id}}",
+    "createdAt": "Created",
+    "updatedAt": "Updated",
+    "statusCompleted": "Completed",
+    "statusPending": "Processing",
+    "statusCancelled": "Cancelled"
+  },
+  "exchangeHistory": {
+    "title": "Order history",
+    "total": "Total",
+    "loading": "Loading history...",
+    "error": "Could not load order history. Please try again later.",
+    "emptyMonth": "No orders for the selected month.",
+    "emptyAll": "You have no orders yet."
+  },
+  "referral": {
+    "pageTitle": "Referral program",
+    "refBalance": "Referral balance",
+    "referrals": "Referrals",
+    "activeReferrals": "Active referrals",
+    "headline": "Invite friends\nand earn with us",
+    "reward1": "Earn <bold>$15</bold> when your friend completes a second trade",
+    "reward2": "Save up to <bold>150$</bold> and withdraw to your account",
+    "share": "Share",
+    "shareLink": "Share link",
+    "qrTitle": "Referral QR code",
+    "shareText": "Best CASH RUB → USDT exchange in Moscow City!"
+  },
+  "personalForm": {
+    "lastName": "Last name",
+    "firstName": "First name",
+    "middleName": "Middle name (optional)",
+    "remember": "Remember my details"
+  },
+  "kyc": {
+    "success": "Name updated",
+    "title": "Your full name",
+    "done": "Save",
+    "errorFillName": "Enter first and last name.",
+    "errorPartLength": "Each name part must be 2–64 characters.",
+    "errorNameChars": "Name may only contain letters, spaces, and hyphens."
+  },
+  "validation": {
+    "fillName": "Enter first and last name.",
+    "nameChars": "Name may only contain letters, spaces, and hyphens.",
+    "usdtRequired": "Enter a USDT wallet address.",
+    "usdtInvalid": "Invalid USDT TRC20 address format.",
+    "orderCreated": "Order created!",
+    "submitError": "Could not submit the order. Please try again later."
+  },
+  "wallet": {
+    "balance": "Balance",
+    "deposit": "Deposit",
+    "withdraw": "Withdraw",
+    "pay": "Pay",
+    "purchase": "Purchase",
+    "topUp": "Top-up",
+    "operations": "Operations"
+  },
+  "deposit": {
+    "title": "Address",
+    "warning": "Send only USDT TRC20 to this address. Assets sent on other networks will be lost permanently",
+    "addressHint": "Your USDT address on TRC20",
+    "minDeposit": "Minimum deposit 4 USDT",
+    "fee": "Fixed fee 2.5 USDT"
+  },
+  "withdraw": {
+    "tabRufin": "B Rufin",
+    "tabAddress": "To address",
+    "development": "Transfers to another crypto wallet are coming soon"
+  },
+  "turnover": {
+    "label": "Turnover"
+  },
+  "turnoverStats": {
+    "purchases": "Purchases",
+    "sales": "Sales"
+  },
+  "monthPicker": {
+    "title": "Select month",
+    "done": "Done"
+  },
+  "months": {
+    "capital": [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December"
+    ],
+    "lower": [
+      "january",
+      "february",
+      "march",
+      "april",
+      "may",
+      "june",
+      "july",
+      "august",
+      "september",
+      "october",
+      "november",
+      "december"
+    ]
+  },
+  "payment": {
+    "pay": "Pay",
+    "continue": "Continue",
+    "toHome": "Back to home",
+    "statusIdleTitle": "Ready to pay",
+    "statusIdleSubtitle": "Payment takes about 15 seconds",
+    "statusPayingTitle": "Processing purchase",
+    "statusPayingSubtitle": "Transaction accepted",
+    "statusDoneTitle": "Payment successful!",
+    "statusDoneSubtitle": "Thanks for choosing Rufin",
+    "exchangeRate": "Exchange rate",
+    "merchant": "Merchant",
+    "demoMerchant": "Perekrestok"
+  },
+  "loyalty": {
+    "title": "Level up\nand get discounts",
+    "discountFromRate": "Discount on rate",
+    "beginnerName": "Beginner",
+    "beginnerTurnover": "Turnover up to 100,000 USDT",
+    "beginnerDiscount": "—",
+    "bronzeName": "Bronze",
+    "bronzeTurnover": "Turnover from 100,000 USDT",
+    "bronzeDiscount": "-1 kopeck",
+    "silverName": "Silver",
+    "silverTurnover": "Turnover from 300,000 USDT",
+    "silverDiscount": "-2 kopecks",
+    "goldName": "Gold",
+    "goldTurnover": "Turnover from 500,000 USDT",
+    "goldDiscount": "-3 kopecks"
+  },
+  "addressPage": {
+    "title": "Address",
+    "hours": "From 12:00 to 00:00. No weekends.",
+    "office": "Moscow, Presnenskaya Emb. 12, Federation Tower East, floor 77, office 7704"
+  },
+  "sbpBanner": {
+    "title": "Pay with QR",
+    "subtitle": "Pay for purchases with crypto\nvia SBP QR with no fees"
+  },
+  "refCode": {
+    "copyCode": "Copy code",
+    "copied": "Copied",
+    "showQr": "Show QR code"
+  },
+  "walletInput": {
+    "placeholder": "USDT TRC20 address",
+    "selectWallet": "Choose wallet",
+    "scanQr": "Scan QR code",
+    "clear": "Clear",
+    "restoreInput": "Back to input",
+    "scanPrompt": "Scan wallet QR code"
+  },
+  "walletPicker": {
+    "title": "Select asset",
+    "internal": "Internal wallet",
+    "previouslyUsed": "Previously used"
+  },
+  "currencyTabs": {
+    "showBalance": "Show balance",
+    "hideBalance": "Hide balance",
+    "rubAria": "Ruble",
+    "usdAria": "US dollar"
+  }
+}
