@@ -202,6 +202,22 @@
     "city": "Москва",
     "address": "Пресненская наб. 12, башня «Федерация-Восток», 77 этаж, офис 04"
   },
+  "cashOrder": {
+    "depositTitle": "Пополнить наличными в Rufin",
+    "withdrawTitle": "Снять наличными в Rufin",
+    "youPay": "Вы платите",
+    "youReceive": "Вы получите",
+    "noCommission": "Без комиссии",
+    "firstName": "Имя",
+    "lastName": "Фамилия",
+    "balanceRub": "Баланс RUB",
+    "minRub": "Минимальная сумма — {{amount}} ₽",
+    "maxRub": "Максимальная сумма — {{amount}} ₽",
+    "walletUnavailable": "Не удалось получить кошелек Rufin. Попробуйте позже.",
+    "rateUnavailable": "Курс временно недоступен. Попробуйте позже.",
+    "depositCreated": "Заявка на пополнение создана!",
+    "withdrawCreated": "Заявка принята: {{amount}}₽"
+  },
   "withdraw": {
     "tabRufin": "B Rufin",
     "tabAddress": "По адресу",

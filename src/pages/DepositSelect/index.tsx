@@ -56,7 +56,7 @@ export default function DepositSelect() {
           icon={<RubCurrencyIcon />}
           title="RUB"
           description={t("depositSelect.rubDescription")}
-          onClick={() => navigate("/office-select")}
+          onClick={() => navigate("/office-select?flow=deposit")}
         />
       </div>
     </div>

@@ -202,6 +202,22 @@
     "city": "Moscow",
     "address": "Presnenskaya Emb. 12, Federation Tower East, floor 77, office 04"
   },
+  "cashOrder": {
+    "depositTitle": "Deposit cash to Rufin",
+    "withdrawTitle": "Withdraw cash from Rufin",
+    "youPay": "You pay",
+    "youReceive": "You receive",
+    "noCommission": "No fee",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "balanceRub": "RUB balance",
+    "minRub": "Minimum amount — {{amount}} ₽",
+    "maxRub": "Maximum amount — {{amount}} ₽",
+    "walletUnavailable": "Could not load your Rufin wallet. Try again later.",
+    "rateUnavailable": "The rate is temporarily unavailable. Try again later.",
+    "depositCreated": "Deposit request created!",
+    "withdrawCreated": "Request accepted: {{amount}}₽"
+  },
   "withdraw": {
     "tabRufin": "B Rufin",
     "tabAddress": "To address",

@@ -22,6 +22,7 @@ import Withdraw from "@/pages/Withdraw";
 import WithdrawSelect from "@/pages/WithdrawSelect";
 import OfficeSelect from "@/pages/OfficeSelect";
 import Payment from "@/pages/Payment";
+import CashOrder from "@/pages/CashOrder";
 
 function ResetCalculatorOnRouteChange() {
   const { pathname } = useLocation();
@@ -64,6 +65,8 @@ export default function Router() {
           <Route path="/deposit" element={<Deposit />} />
           <Route path="/withdraw-select" element={<WithdrawSelect />} />
           <Route path="/office-select" element={<OfficeSelect />} />
+          <Route path="/cash-deposit" element={<CashOrder mode="deposit" />} />
+          <Route path="/cash-withdraw" element={<CashOrder mode="withdraw" />} />
           <Route path="/ref-share" element={<RefShare />} />
         </Route>
         <Route path="/payment" element={<Payment />} />

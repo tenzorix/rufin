@@ -56,7 +56,7 @@ export default function WithdrawSelect() {
           icon={<RubCurrencyIcon />}
           title="RUB"
           description={t("withdrawSelect.rubDescription")}
-          onClick={() => navigate("/office-select")}
+          onClick={() => navigate("/office-select?flow=withdraw")}
         />
       </div>
     </div>
