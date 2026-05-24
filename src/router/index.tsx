@@ -16,8 +16,11 @@ import Loyalty from "@/pages/Loyalty";
 import ServiceRules from "@/pages/ServiceRules";
 import About from "@/pages/About";
 import Deposit from "@/pages/Deposit";
+import DepositSelect from "@/pages/DepositSelect";
 import RefShare from "@/pages/RefShare";
 import Withdraw from "@/pages/Withdraw";
+import WithdrawSelect from "@/pages/WithdrawSelect";
+import OfficeSelect from "@/pages/OfficeSelect";
 import Payment from "@/pages/Payment";
 
 function ResetCalculatorOnRouteChange() {
@@ -57,7 +60,10 @@ export default function Router() {
           <Route path="/rules" element={<ServiceRules />} />
           <Route path="/about" element={<About />} />
 
+          <Route path="/deposit-select" element={<DepositSelect />} />
           <Route path="/deposit" element={<Deposit />} />
+          <Route path="/withdraw-select" element={<WithdrawSelect />} />
+          <Route path="/office-select" element={<OfficeSelect />} />
           <Route path="/ref-share" element={<RefShare />} />
         </Route>
         <Route path="/payment" element={<Payment />} />

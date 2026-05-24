@@ -187,10 +187,30 @@
     "minDeposit": "Минимальная сумма пополнения 4 USDT",
     "fee": "Фиксированная комиссия 2.5 USDT"
   },
+  "depositSelect": {
+    "title": "Пополнить",
+    "usdtDescription": "По кошельку",
+    "rubDescription": "Через обменник"
+  },
+  "withdrawSelect": {
+    "title": "Вывести",
+    "usdtDescription": "По кошельку",
+    "rubDescription": "Через обменник"
+  },
+  "officeSelect": {
+    "title": "Выберете офис",
+    "city": "Москва",
+    "address": "Пресненская наб. 12, башня «Федерация-Восток», 77 этаж, офис 04"
+  },
   "withdraw": {
     "tabRufin": "B Rufin",
     "tabAddress": "По адресу",
-    "development": "Переводы на другой криптокошелек пока в разработке"
+    "development": "Переводы на другой криптокошелек пока в разработке",
+    "addressPlaceholder": "Адрес USDT TRC20",
+    "amountPlaceholder": "Сумма",
+    "paste": "Вставить",
+    "rufinSource": "C Rufin",
+    "next": "Далее"
   },
   "turnover": {
     "label": "Оборот"

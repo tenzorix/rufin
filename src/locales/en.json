@@ -187,10 +187,30 @@
     "minDeposit": "Minimum deposit 4 USDT",
     "fee": "Fixed fee 2.5 USDT"
   },
+  "depositSelect": {
+    "title": "Deposit",
+    "usdtDescription": "By wallet",
+    "rubDescription": "Via exchanger"
+  },
+  "withdrawSelect": {
+    "title": "Withdraw",
+    "usdtDescription": "By wallet",
+    "rubDescription": "Via exchanger"
+  },
+  "officeSelect": {
+    "title": "Choose an office",
+    "city": "Moscow",
+    "address": "Presnenskaya Emb. 12, Federation Tower East, floor 77, office 04"
+  },
   "withdraw": {
     "tabRufin": "B Rufin",
     "tabAddress": "To address",
-    "development": "Transfers to another crypto wallet are coming soon"
+    "development": "Transfers to another crypto wallet are coming soon",
+    "addressPlaceholder": "USDT TRC20 address",
+    "amountPlaceholder": "Amount",
+    "paste": "Paste",
+    "rufinSource": "From Rufin",
+    "next": "Next"
   },
   "turnover": {
     "label": "Turnover"

@@ -162,8 +162,8 @@ export default function WalletActions() {
   ];
 
   const operationItemsBottom: OperationItem[] = [
-    { logo: <DepositLogo />, text: "Пополнить", onClick: () => navigate('/deposit') },
-    { logo: <WithdrawLogo />, text: "Вывести", onClick: () => navigate('/withdraw') },
+    { logo: <DepositLogo />, text: "Пополнить", onClick: () => navigate('/deposit-select') },
+    { logo: <WithdrawLogo />, text: "Вывести", onClick: () => navigate('/withdraw-select') },
     { logo: <ExchangeLogo />, text: "Обменять", onClick: () => navigate('/home') },
   ];
 
@@ -179,7 +179,7 @@ export default function WalletActions() {
       <div className="grid grid-cols-4 gap-1 w-full">
         <button
           type="button"
-          onClick={() => navigate('/deposit')}
+          onClick={() => navigate('/deposit-select')}
           className="walletActionsBtn"
         >
 
@@ -193,7 +193,7 @@ export default function WalletActions() {
 
         <button
           type="button"
-          onClick={() => navigate('/withdraw')}
+          onClick={() => navigate('/withdraw-select')}
           className="walletActionsBtn"
         >
           <svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
