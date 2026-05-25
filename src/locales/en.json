@@ -2,6 +2,9 @@
   "nav": {
     "wallet": "Wallet",
     "home": "Home",
+    "rufin": "Rufin",
+    "scan": "Scan",
+    "exchange": "Exchange",
     "profile": "Profile"
   },
   "common": {
@@ -14,6 +17,114 @@
     "done": "Done",
     "total": "Total",
     "map": "Map"
+  },
+  "cards": {
+    "page": {
+      "aria": "Cards"
+    },
+    "card": {
+      "aria": "Light card for online services payments",
+      "title": "Card for paying for online services",
+      "country": "Singapore",
+      "currency": "USD"
+    },
+    "light": {
+      "label": "light"
+    },
+    "error": {
+      "unavailable": "Cards are temporarily unavailable"
+    },
+    "maxReached": "Limit reached: {count} active cards",
+    "new": {
+      "page": {
+        "aria": "New card"
+      },
+      "title": "Works for payments in any online services",
+      "details": {
+        "topupFee": {
+          "label": "Top-up fee"
+        },
+        "billingAddress": {
+          "label": "Billing address",
+          "value": "Singapore"
+        },
+        "validity": {
+          "label": "Validity",
+          "value": "3 years"
+        },
+        "currency": {
+          "label": "Currency",
+          "value": "USD"
+        }
+      },
+      "pricing": {
+        "issue": {
+          "label": "Card issue"
+        },
+        "deposit": {
+          "label": "First deposit"
+        }
+      },
+      "submit": "Issue card"
+    },
+    "purchase": {
+      "title": "Rufin card",
+      "amountCurrency": "USDT",
+      "firstTopUpFeeLabel": "First top-up fee",
+      "firstTopUpFee": "First top-up fee {amount} USDT",
+      "reserveHint": "Card issue requires {amount} USDT on balance",
+      "confirm": "Confirm",
+      "submitting": "Issuing card..."
+    },
+    "cardPage": {
+      "aria": "Light card",
+      "previewTitle": "Rufin card",
+      "balanceLabel": "Card balance",
+      "credentials": "Details",
+      "pendingShort": "Issuing",
+      "historyTitle": "History",
+      "historyText": "Your transactions will appear here",
+      "requestTitle": "Issuing card",
+      "requestText": "Issuing usually takes a few seconds. If stock is empty, it may take longer.",
+      "initialDepositTitle": "Top up is processing",
+      "initialDepositText": "The first deposit starts automatically. Once it completes, the card becomes fully active."
+    },
+    "details": {
+      "title": "Light card details",
+      "cardLabel": "Light",
+      "country": "Country",
+      "city": "City",
+      "address": "Address",
+      "postalCode": "Postal code"
+    },
+    "topUp": {
+      "title": "Card top up",
+      "placeholder": "USDT",
+      "fee": "Markup {percent}%",
+      "submit": "Pay",
+      "submitValue": "Pay {amount} USDT",
+      "submitting": "Paying...",
+      "success": "Card topped up by ${amount}",
+      "processing": "Top up is processing"
+    },
+    "topUpPage": {
+      "title": "Top up Rufin card"
+    }
+  },
+  "history": {
+    "title": "History",
+    "retry": "Retry",
+    "empty": "No transactions to display",
+    "depositError": "Top-up error"
+  },
+  "account": {
+    "deposit": "Deposit"
+  },
+  "popup": {
+    "withdraw": {
+      "summaryLumo": "C Lumo",
+      "max": "Max"
+    }
   },
   "language": {
     "title": "Language",

@@ -11,6 +11,12 @@ import UsdtCurrencyIcon from "@/assets/icons/UsdtCurrencyIcon";
 import RubCurrencyIcon from "@/assets/icons/RubCurrencyIcon";
 import RufinCardIcon from "@/assets/icons/RufinCardIcon";
 import AddCardIcon from "@/assets/icons/AddCardIcon";
+import {
+  formatCardBalance,
+  formatCardMaskedSuffix,
+  useCardActivity,
+  useCardsCatalog,
+} from "@/payment/hooks/useCards";
 import "./WalletActions.scss";
 
 const MODAL_ANIMATION_DURATION = 500;
@@ -73,6 +79,22 @@ export default function WalletActions() {
 
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [decoding, setDecoding] = useState(false);
+  const {
+    activeCards,
+    loading: cardsLoading,
+  } = useCardsCatalog();
+  const primaryCard = activeCards[0] ?? null;
+  const {
+    balanceUsd: cardBalanceUsd,
+    loading: cardBalanceLoading,
+  } = useCardActivity(primaryCard);
+  const cardBalanceParts = formatCardBalance(cardBalanceUsd);
+  const cardMaskedSuffix =
+    primaryCard?.status === "requested"
+      ? t("cards.cardPage.pendingShort")
+      : formatCardMaskedSuffix(primaryCard?.maskedPan ?? null);
+  const isCardBalanceVisible =
+    primaryCard?.status === "assigned" && !cardBalanceLoading;
 
   useEffect(() => {
     // Preload logo for QR на экране пополнения
@@ -287,36 +309,57 @@ export default function WalletActions() {
       <div className="mt-4 flex flex-col items-start gap-2 self-stretch">
         <div className="pl-2 text-[14px] font-bold leading-normal text-white">Карты</div>
         <div className="flex w-full flex-col items-start gap-2 rounded-[20px] bg-white/[0.04] p-2">
-          <div className="flex w-full items-center justify-between self-stretch pr-2">
-            <div className="flex items-center gap-2">
-              <div className="h-[44px] w-[64px] shrink-0">
-                <RufinCardIcon />
+          {primaryCard ? (
+            <button
+              type="button"
+              onClick={() => navigate('/card')}
+              className="flex w-full items-center justify-between self-stretch pr-2 text-left"
+            >
+              <div className="flex items-center gap-2">
+                <div className="h-[44px] w-[64px] shrink-0">
+                  <RufinCardIcon />
+                </div>
+                <div className="flex flex-col items-start py-1">
+                  <div className="text-[14px] font-bold leading-normal text-white">
+                    {t("cards.details.cardLabel")}
+                  </div>
+                  <div className="text-[12px] leading-[100%] [font-weight:510] text-white/60">
+                    {cardMaskedSuffix}
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col items-start py-1">
-                <div className="text-[14px] font-bold leading-normal text-white">Карта Rufin</div>
-                <div className="text-[12px] leading-[100%] [font-weight:510] text-white/60">*1234</div>
+              <div className="flex flex-col items-end gap-0.5">
+                <div className="flex items-center gap-0.5 text-[16px] font-bold leading-[100%] text-white">
+                  {isCardBalanceVisible ? (
+                    <>
+                      <span>
+                        {cardBalanceParts.integer}.{cardBalanceParts.fractional}
+                      </span>
+                      <span>$</span>
+                    </>
+                  ) : (
+                    <span>{cardsLoading || cardBalanceLoading ? "..." : "—"}</span>
+                  )}
+                </div>
+                <div className="flex items-start gap-1 text-[12px] leading-[100%] [font-weight:510] text-white/60">
+                  <span>USD</span>
+                </div>
               </div>
-            </div>
-            <div className="flex flex-col items-end gap-0.5">
-              <div className="flex items-center gap-0.5 text-[16px] font-bold leading-[100%] text-white">
-                <span>1 000 000</span>
-                <span>₽</span>
-              </div>
-              <div className="flex items-start gap-1 text-[12px] leading-[100%] [font-weight:510] text-white/60">
-                <span>12,150.67</span>
-                <span>$</span>
-              </div>
-            </div>
-          </div>
+            </button>
+          ) : null}
 
-          <div className="h-px w-full bg-white/[0.08]" />
+          {primaryCard ? <div className="h-px w-full bg-white/[0.08]" /> : null}
 
-          <div className="flex w-full items-center gap-2 self-stretch pr-2">
+          <button
+            type="button"
+            onClick={() => navigate('/new-card', { state: { backTo: '/wallet' } })}
+            className="flex w-full items-center gap-2 self-stretch pr-2 text-left"
+          >
             <div className="h-[44px] w-[64px] shrink-0">
               <AddCardIcon />
             </div>
             <div className="text-[14px] font-bold leading-normal text-white">Добавить карту</div>
-          </div>
+          </button>
         </div>
       </div>
 

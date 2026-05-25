@@ -1,9 +1,10 @@
-import { useCallback, useEffect, useMemo, useRef, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useMemo, useState, type FormEvent } from "react";
 import { Link, useNavigate } from "react-router";
 import { useTranslation } from "react-i18next";
 import PageHeader from "@/components/shared/PageHeader";
 import BalanceSkeleton from "@/components/shared/BalanceSkeleton";
 import { RubleIcon } from "@/components/shared/RubleIcon";
+import CashAmountCard from "@/components/common/CashAmountCard";
 import { useBackButton } from "@/hooks/useBackButton";
 import { useCheckoutForm } from "@/pages/ExchangeCheckout/useCheckoutForm";
 import { useProfileQuery, useSubmitRequestMutation, useUpdateFullnameMutation } from "@/api/hooks";
@@ -21,9 +22,6 @@ import { BALANCE_EXCHANGE_FEE_USDT, MAX_RUB_AMOUNT, MIN_RUB_AMOUNT } from "@/con
 import { formatRubAmount, parseAmount } from "@/utils/exchangeCalculations";
 import { handleCheckoutSuccess, parseFullname, validateCheckoutForm } from "@/utils/exchangeCheckout";
 import {
-  countDigitsRight,
-  formatAmountForUi,
-  getCaretIndexByDigitsRight,
   sanitizeExchangeInput,
 } from "@/utils/exchangeInput";
 import { cn } from "@/utils/cn";
@@ -65,75 +63,6 @@ function OfficeSummaryCard() {
       </div>
       <div className="mt-2 text-xs font-medium leading-[1.15] text-white/55">
         {t("officeSelect.address")}
-      </div>
-    </section>
-  );
-}
-
-function AmountCard({
-  label,
-  amount,
-  error,
-  onChange,
-  onBlur,
-}: {
-  label: string;
-  amount: string;
-  error?: string | null;
-  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  onBlur: () => void;
-}) {
-  const { t } = useTranslation();
-  const inputRef = useRef<HTMLInputElement | null>(null);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const el = e.target;
-    const selectionStart = el.selectionStart ?? el.value.length;
-    const digitsRight = countDigitsRight(el.value, selectionStart);
-
-    onChange(e);
-
-    queueMicrotask(() => {
-      const input = inputRef.current;
-      if (!input) return;
-      const idx = getCaretIndexByDigitsRight(input.value, digitsRight);
-      input.setSelectionRange(idx, idx);
-    });
-  };
-
-  return (
-    <section className="rounded-[24px] bg-white/[0.06] p-4">
-      <div className="flex items-center justify-between gap-2">
-        <div className="flex min-w-0 items-center gap-2">
-          <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0295F9] text-white">
-            <RubleIcon className="size-6" />
-          </span>
-          <span className="whitespace-nowrap text-base font-bold leading-none text-white">
-            {label}
-          </span>
-        </div>
-        <span className="shrink-0 rounded-[6px] border border-white/15 px-2 py-0.5 text-sm font-medium leading-none text-white/55">
-          {t("cashOrder.noCommission")}
-        </span>
-      </div>
-
-      <div className="mt-3 flex items-center justify-between gap-3">
-        <input
-          ref={inputRef}
-          type="text"
-          inputMode="numeric"
-          value={formatAmountForUi(amount)}
-          onChange={handleChange}
-          onBlur={onBlur}
-          placeholder="0"
-          className={cn(
-            "min-w-0 flex-1 bg-transparent text-[40px] font-bold leading-none text-white outline-none placeholder:text-white",
-            error && "text-red-400"
-          )}
-        />
-        <span className="shrink-0 text-[32px] font-bold leading-none text-white/45">
-          RUB
-        </span>
       </div>
     </section>
   );
@@ -290,7 +219,7 @@ function CashConfirmPanel({
 
   return (
     <section className="space-y-5 py-5">
-      <div className="flex w-full gap-[6px] items-center gap-[6px\] px-2 text-left">
+      <div className="flex w-full gap-[6px] items-center gap-[6px] px-2 text-left">
         <button
           type="button"
           onClick={() => setAgreed((v) => !v)}
@@ -545,7 +474,7 @@ export default function CashOrder({ mode }: CashOrderProps) {
             <OfficeSummaryCard />
           </div>
           <div className="space-y-3">
-            <AmountCard
+            <CashAmountCard
               label={mode === "deposit" ? t("cashOrder.youPay") : t("cashOrder.youReceive")}
               amount={amount}
               error={amountError}

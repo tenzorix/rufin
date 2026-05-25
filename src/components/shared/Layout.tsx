@@ -30,7 +30,7 @@ const Layout = ({ showBottomNav = true }: LayoutProps) => {
         style={{
           paddingTop,
           paddingBottom: shouldShowBottomNav
-            ? "calc(5rem + var(--tg-viewport-safe-area-inset-bottom, 0px) + var(--tg-viewport-content-safe-area-inset-bottom, 0px))"
+            ? "calc(6rem + var(--tg-viewport-safe-area-inset-bottom, 0px) + var(--tg-viewport-content-safe-area-inset-bottom, 0px))"
             : undefined,
         }}
       >

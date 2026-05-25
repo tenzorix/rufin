@@ -2,6 +2,9 @@
   "nav": {
     "wallet": "Кошелек",
     "home": "Главная",
+    "rufin": "Rufin",
+    "scan": "Сканировать",
+    "exchange": "Биржа",
     "profile": "Профиль"
   },
   "common": {
@@ -14,6 +17,114 @@
     "done": "Готово",
     "total": "Всего",
     "map": "Карта"
+  },
+  "cards": {
+    "page": {
+      "aria": "Карты"
+    },
+    "card": {
+      "aria": "Карта light для оплаты онлайн сервисов",
+      "title": "Карта для оплаты онлайн сервисов",
+      "country": "Сингапур",
+      "currency": "USD"
+    },
+    "light": {
+      "label": "light"
+    },
+    "error": {
+      "unavailable": "Карты временно недоступны"
+    },
+    "maxReached": "Достигнут лимит: {count} активных карт",
+    "new": {
+      "page": {
+        "aria": "Новая карта"
+      },
+      "title": "Подходит для оплат любых онлайн сервисов",
+      "details": {
+        "topupFee": {
+          "label": "Комиссия за пополнение"
+        },
+        "billingAddress": {
+          "label": "Биллинг адрес",
+          "value": "Сингапур"
+        },
+        "validity": {
+          "label": "Срок действия",
+          "value": "3 года"
+        },
+        "currency": {
+          "label": "Валюта",
+          "value": "USD"
+        }
+      },
+      "pricing": {
+        "issue": {
+          "label": "Выпуск карты"
+        },
+        "deposit": {
+          "label": "Первый депозит"
+        }
+      },
+      "submit": "Оформить"
+    },
+    "purchase": {
+      "title": "Карта Rufin",
+      "amountCurrency": "USDT",
+      "firstTopUpFeeLabel": "Комиссия за первое пополнение",
+      "firstTopUpFee": "Комиссия за первое пополнение {amount} USDT",
+      "reserveHint": "Для выпуска на балансе должно быть {amount} USDT",
+      "confirm": "Подтвердить",
+      "submitting": "Оформляем карту..."
+    },
+    "cardPage": {
+      "aria": "Карта Light",
+      "previewTitle": "Карта Rufin",
+      "balanceLabel": "Баланс карты",
+      "credentials": "Реквизиты",
+      "pendingShort": "Выпуск",
+      "historyTitle": "История",
+      "historyText": "Здесь будут отображаться все ваши транзакции",
+      "requestTitle": "Оформляем карту",
+      "requestText": "Обычно выпуск занимает несколько секунд. Если stock пуст, ожидание может занять больше времени.",
+      "initialDepositTitle": "Пополнение в обработке",
+      "initialDepositText": "Первый депозит запускается автоматически. После завершения карта станет полностью активной."
+    },
+    "details": {
+      "title": "Данные карты Light",
+      "cardLabel": "Light",
+      "country": "Страна",
+      "city": "Город",
+      "address": "Адрес",
+      "postalCode": "Индекс"
+    },
+    "topUp": {
+      "title": "Пополнение карты",
+      "placeholder": "USDT",
+      "fee": "Наценка {percent}%",
+      "submit": "Оплатить",
+      "submitValue": "Оплатить {amount} USDT",
+      "submitting": "Оплачиваем...",
+      "success": "Карта пополнена на ${amount}",
+      "processing": "Пополнение в обработке"
+    },
+    "topUpPage": {
+      "title": "Пополнить карту Rufin"
+    }
+  },
+  "history": {
+    "title": "История",
+    "retry": "Повторить",
+    "empty": "Нет транзакций для отображения",
+    "depositError": "Ошибка пополнения"
+  },
+  "account": {
+    "deposit": "Пополнить"
+  },
+  "popup": {
+    "withdraw": {
+      "summaryLumo": "C Lumo",
+      "max": "Макс"
+    }
   },
   "language": {
     "title": "Язык",

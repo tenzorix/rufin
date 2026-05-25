@@ -1,0 +1,1688 @@
+.home.paymentsPage {
+  --safe-area-inset-top: max(0px, env(safe-area-inset-top, 0px));
+  --safe-area-inset-bottom: max(0px, env(safe-area-inset-bottom, 0px));
+  flex: 1;
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 0;
+  overflow-x: hidden;
+  padding-bottom: var(--safe-area-inset-bottom);
+  background:
+    linear-gradient(0deg, #0d0d0d 0%, #0d0d0d 100%),
+    radial-gradient(372.85% 137.08% at 0% 0%, #fff8e2 0%, #b0b6cc 67.69%, #9b96b4 100%),
+    #0e0e0e;
+  background-blend-mode: normal, normal, normal;
+  position: relative;
+}
+
+.home.paymentsPage::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: rgba(0, 0, 0, 0.24);
+  pointer-events: none;
+}
+
+.home.paymentsPage > * {
+  position: relative;
+  z-index: 1;
+}
+
+.home.paymentsPage.newCardPage {
+  background: linear-gradient(to bottom, #0a204f 0%, #0a1531 8%, #080c18 30%);
+}
+
+.home.paymentsPage.newCardPage::before {
+  display: none;
+}
+
+.home.paymentsPage.cardPage {
+  background:
+    linear-gradient(0deg, #080c19 0%, #080c19 100%),
+    radial-gradient(372.85% 137.08% at 0% 0%, #fff8e2 0%, #b0b6cc 67.69%, #9b96b4 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.53) 0%, rgba(0, 0, 0, 0.53) 100%),
+    radial-gradient(372.85% 137.08% at 0% 0%, #faf5e4 7.63%, #c7d0f0 62.44%, #9f99b6 100%),
+    radial-gradient(291.52% 124.72% at 4% 0%, #ffe0c1 0%, #db9f9f 63.08%, #e5937d 100%),
+    radial-gradient(216.71% 147.02% at 20.18% 0%, #ff8400 0%, #ea3f00 100%),
+    #0e0e0e;
+  background-blend-mode: normal, normal, overlay, normal, normal, normal, normal;
+}
+
+.home.paymentsPage.cardPage::before {
+  display: none;
+}
+
+.cardPageTopBar {
+  width: 100%;
+  max-width: 448px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+html.scrollLocked,
+body.scrollLocked {
+  overflow: hidden;
+  overscroll-behavior: none;
+  touch-action: none;
+}
+
+.paymentsContainer {
+  width: 100%;
+  padding: 0 16px calc(95px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
+  overflow: visible;
+}
+
+.paymentsBlock,
+.cardsBlock {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.cardsButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 0;
+  border: 0;
+  appearance: none;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.cardsButton:active {
+  opacity: 0.86;
+}
+
+.cardsPreview,
+.newCardPreview,
+.popupCardDetailsPreview {
+  background-image: url("/assets/img/CardBack.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.cardsPreview {
+  display: flex;
+  flex: 0 0 auto;
+  height: 96px;
+  padding: 8px;
+  align-items: flex-end;
+  aspect-ratio: 5 / 3;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.cardsPreviewContent,
+.newCardPreviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardsPreviewLabel,
+.newCardPreviewLabel {
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.cardsInfo {
+  display: flex;
+  min-height: 96px;
+  flex: 1 0 0;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.cardsInfoTitle {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cardsInfoMeta {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardsInfoMetaRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.cardsInfoMetaIconWrap {
+  display: flex;
+  width: 16px;
+  min-width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardsInfoMetaText {
+  color: #fff;
+  font-size: 13px;
+  font-weight: 510;
+  opacity: 0.65;
+}
+
+.newCardContainer {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  padding-bottom: calc(109px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
+}
+
+.newCardPage .newCardContainer {
+  max-width: 448px;
+  margin: 0 auto;
+}
+
+.newCardBlock {
+  flex: 1;
+  align-items: center;
+  gap: 32px;
+}
+
+.newCardHero {
+  display: flex;
+  width: min(100%, 315px);
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.newCardPreview {
+  display: flex;
+  width: 250px;
+  aspect-ratio: 5 / 3;
+  padding: 14px;
+  justify-content: flex-end;
+  border-radius: 20px;
+}
+
+.newCardPage .newCardPreview {
+  width: 240px;
+  height: 152px;
+  aspect-ratio: 30 / 19;
+  padding: 0;
+  border-radius: 28px;
+  background-image: url("/assets/img/CardBackRufin.png");
+  background-size: contain;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+}
+
+.newCardPreviewContent {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.newCardPreviewIcon {
+  display: flex;
+  width: 24px;
+  height: 24px;
+}
+
+.newCardPreviewIcon svg,
+.newCardPreviewVisa svg,
+.popupCardDetailsPreviewVisa svg {
+  width: 100%;
+  height: 100%;
+}
+
+.newCardPreviewLabel {
+  font-size: 16px;
+}
+
+.newCardPreviewVisa {
+  display: flex;
+  width: 61px;
+  height: 18px;
+  align-self: flex-end;
+}
+
+.newCardHeroTitle {
+  color: #fff;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 120%;
+}
+
+.newCardDetails {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.newCardDetailsBlock {
+  display: flex;
+  align-self: stretch;
+  padding: 12px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 16px;
+}
+
+.newCardPage .newCardDetailsBlock {
+  gap: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.newCardDetailsRow {
+  display: flex;
+  align-self: stretch;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.newCardPage .newCardDetailsRow {
+  position: relative;
+  min-height: 40px;
+  padding: 12px;
+}
+
+.newCardPage .newCardDetailsRow::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  left: 12px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.newCardPage .newCardDetailsRow:last-child::after {
+  display: none;
+}
+
+.newCardDetailsLabel,
+.newCardDetailsValue {
+  color: #fff;
+  font-size: 14px;
+  line-height: normal;
+}
+
+.newCardPage .newCardDetailsLabel,
+.newCardPage .newCardDetailsValue {
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.newCardDetailsLabel {
+  font-weight: 510;
+  opacity: 0.65;
+}
+
+.newCardPage .newCardDetailsLabel {
+  color: rgba(255, 255, 255, 0.68);
+  opacity: 1;
+}
+
+.newCardDetailsValue {
+  font-weight: 700;
+  text-align: right;
+}
+
+.newCardPage .newCardDetailsValue {
+  max-width: 62%;
+  color: #fff;
+}
+
+.newCardFooter {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 25;
+  padding: 0 16px calc(24px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
+}
+
+.newCardPage .newCardFooter {
+  left: 50%;
+  width: 100%;
+  max-width: 448px;
+  transform: translateX(-50%);
+}
+
+.cardsPageState {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.cardPageContainer {
+  padding-right: 0;
+  padding-bottom: 0;
+  padding-left: 0;
+}
+
+.cardPageBlock {
+  align-items: center;
+}
+
+.cardPageSliderWrap {
+  width: 100vw;
+  margin: 0 calc(50% - 50vw);
+  overflow: hidden;
+}
+
+.cardPageSlider {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 40px;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 calc(50vw - 120px);
+}
+
+.cardPageSlider::-webkit-scrollbar {
+  display: none;
+}
+
+.cardPageSlide {
+  display: flex;
+  flex: 0 0 240px;
+  width: 240px;
+  height: 152px;
+  aspect-ratio: 30 / 19;
+  align-items: flex-end;
+  padding: 16px;
+  scroll-snap-align: center;
+  border: 0;
+  border-radius: 24px;
+  color: #fff;
+  opacity: var(--card-opacity, 0.88);
+  transform: scale(var(--card-scale, 0.8));
+  transform-origin: center center;
+  transition: transform 0.08s linear, opacity 0.08s linear;
+  will-change: transform, opacity;
+}
+
+.cardPageContainer .cardPageSlide {
+  background-image: url("/assets/img/CardBackground.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  transform: scale(1);
+}
+
+.cardPageSlide--add {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  border: 1.875px dashed #424242 !important;
+  border-radius: 24px;
+  background: #262626;
+}
+
+.cardPageSlide--skeleton {
+  pointer-events: none;
+  background-image: none;
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+.cardPageSlideBottom {
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.cardPageTitle {
+  color: #fff;
+  font-family: "SF Pro";
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80%;
+  letter-spacing: -0.32px;
+  white-space: nowrap;
+}
+
+.cardPageSuffix {
+  color: #fff;
+  font-family: "SF Pro";
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: 80%;
+  letter-spacing: -0.28px;
+  opacity: 0.6;
+  white-space: nowrap;
+}
+
+.cardPageAddInner {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--card-proximity, 0) * 50%);
+  display: flex;
+  width: 37.5px;
+  height: 37.5px;
+  align-items: center;
+  justify-content: center;
+  border: 1.875px dashed #424242 !important;
+  border-radius: 20px;
+  background: #262626;
+  transform: translate(-50%, -50%);
+  transition: left 0.08s linear, transform 0.08s linear;
+}
+
+.cardPageBalance {
+  display: flex;
+  align-self: stretch;
+  margin-top: 24px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.popupEsimConfirmAmount,
+.cardPageBalanceAmount {
+  display: flex;
+  align-items: end;
+  justify-content: center;
+  gap: 4px;
+}
+
+.cardPageBalanceAmount {
+  align-self: center;
+  gap: 0 !important;
+}
+
+.cardPageBalanceCurrency {
+  margin-right: 4px;
+}
+
+.popupEsimConfirmAmountText {
+  color: #fff;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 80%;
+  letter-spacing: -0.96px;
+}
+
+.cardPageBalanceAmount .popupEsimConfirmAmountText,
+.cardPageBalanceFraction {
+  font-size: 40px !important;
+  font-weight: 700 !important;
+  line-height: 90% !important;
+  letter-spacing: -0.8px !important;
+}
+
+.cardPageBalanceFraction {
+  font-size: 32px !important;
+}
+
+.accountAmountGray {
+  opacity: 0.4;
+}
+
+.cardPageBalanceSkeleton {
+  display: block;
+  width: 148px;
+  height: 36px;
+  align-self: center;
+  border-radius: 12px;
+}
+
+.cardPageBalanceLabel {
+  align-self: center;
+  margin-bottom: 8px;
+  color: #fff;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 700;
+  opacity: 0.65;
+}
+
+.accountBlockBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: 24px;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cardPageTopUpButton {
+  width: auto;
+  margin-top: 24px;
+  padding: 12px 16px 12px 12px;
+}
+
+.cardPageTopUpButton:disabled {
+  opacity: 0.45;
+}
+
+.cardPageActions {
+  display: flex;
+  width: auto;
+  align-items: stretch;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.cardPageActions .walletActionsBtn {
+  display: flex;
+  height: 52px;
+  width: 82px;
+  min-width: 0;
+  flex: 0 0 82px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 12px 6px;
+  border: 0;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.16);
+  color: #fff;
+  font-family: "SF Pro", "SF Pro Display";
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 510;
+  line-height: normal;
+}
+
+.cardPageActions .walletActionsBtn:disabled {
+  opacity: 0.45;
+}
+
+.cardPageActions .walletActionsBtn svg {
+  flex: 0 0 auto;
+}
+
+.history {
+  position: relative;
+  z-index: 0;
+  display: flex;
+  width: 100%;
+  min-height: 0;
+  flex: 1;
+  padding: 24px 16px 95px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+  border-radius: 24px 24px 0 0;
+  background: rgba(13, 13, 13, 0.8);
+}
+
+.history.cardPageHistory {
+  margin-top: 32px;
+  padding-top: 0;
+  padding-bottom: 0;
+  background: none;
+}
+
+.history.cardPageHistory .historyHeader {
+  display: none;
+}
+
+.history.cardPageHistory .historyPart {
+  gap: 8px;
+}
+
+.history.cardPageHistory .historyPartDay {
+  padding-left: 0;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  font-weight: 510;
+  line-height: 100%;
+  padding-left: 8px;
+}
+
+.history.cardPageHistory .historyOperations {
+  gap: 0;
+  overflow: hidden;
+  padding: 8px;
+  border: 0;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.history.cardPageHistory .historyOperation {
+  position: relative;
+  min-height: 40px;
+  height: 40px;
+  box-sizing: border-box;
+  margin-bottom: 17px;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+  background-image: none;
+}
+
+.history.cardPageHistory .historyOperation::after {
+  content: "";
+  position: absolute;
+  right: 0px;
+  bottom: -9px;
+  left: 0px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.history.cardPageHistory .historyOperation:last-child {
+  margin-bottom: 0;
+}
+
+.history.cardPageHistory .historyOperation:last-child::after {
+  display: none;
+}
+
+.history.cardPageHistory .historyOperationInfo {
+  gap: 14px;
+}
+
+.history.cardPageHistory .historyOperationIcon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.history.cardPageHistory .historyOperationIcon--payment svg {
+  transform: rotate(-135deg);
+}
+
+.history.cardPageHistory .historyOperationInfoColumn {
+  gap: 2px;
+  color: rgba(255, 255, 255, 0.62);
+  font-size: 12px;
+  font-weight: 510;
+  line-height: 100%;
+}
+
+.history.cardPageHistory .historyOperationInfoColumnHeader {
+  max-width: clamp(120px, 40vw, 190px);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.history.cardPageHistory .historyOperationAmount {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -0.56px;
+}
+
+.history.cardPageHistory .historyOperationAmountGreen {
+  color: #27c182;
+}
+
+.historyHeader {
+  padding-left: 8px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.historyState {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  font-size: 14px;
+}
+
+.historyState--error {
+  background: rgba(255, 0, 0, 0.2);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.historyStateBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 16px;
+  border-radius: 16px;
+  background: #000;
+  color: #fff;
+  font-size: 14px;
+}
+
+.historyPart,
+.historySkeleton,
+.historyOperations {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.historyPart {
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 16px;
+}
+
+.historyPartDay {
+  padding-left: 8px;
+}
+
+.historyOperations {
+  gap: 4px;
+}
+
+.historyOperation {
+  display: grid;
+  height: 40px;
+  box-sizing: content-box;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  align-self: stretch;
+  column-gap: 8px;
+  padding: 8px 16px 8px 8px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.historyOperation--deposit-success,
+.historyOperation--positive:not(.historyOperation--deposit) {
+  background-image: url("/assets/img/DepBack.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.historyOperation--deposit-processing,
+.historyOperation--order-processing {
+  background-image: url("/assets/img/ProcessBack.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.historyOperation--deposit-error,
+.historyOperation--order-error {
+  background-image: url("/assets/img/ErrorBack.webp");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.historyOperationInfo {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.historyOperationIcon {
+  display: flex;
+  width: 40px;
+  height: 100%;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.historyOperationInfoColumn {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 12px;
+}
+
+.historyOperationInfoColumnHeader {
+  display: block;
+  max-width: clamp(120px, 40vw, 180px);
+  overflow: hidden;
+  color: #fff;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 16px;
+}
+
+.historyOperationAmount {
+  flex-shrink: 0;
+  color: #fff;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.historyOperationAmountGreen {
+  color: #009641;
+}
+
+.historyOperation--deposit-processing .historyOperationAmount,
+.historyOperation--order-processing .historyOperationAmount {
+  color: #eeac06;
+}
+
+.historyOperation--deposit-error .historyOperationAmount,
+.historyOperation--order-error .historyOperationAmount {
+  color: #c10d0d;
+}
+
+.historyOperationAmount--hidden {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.historySkeleton {
+  gap: 16px;
+}
+
+.historySkeletonDay,
+.historySkeletonLine,
+.historySkeletonAmount {
+  display: block;
+  border-radius: 999px;
+}
+
+.historySkeletonDay {
+  width: 120px;
+  height: 14px;
+}
+
+.historySkeletonLine {
+  width: 96px;
+  height: 10px;
+}
+
+.historySkeletonLine--wide {
+  width: 140px;
+}
+
+.historySkeletonAmount {
+  width: 72px;
+  height: 14px;
+}
+
+.skeletonShimmer {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(100deg, rgba(255, 255, 255, 0.08) 30%, rgba(255, 255, 255, 0.18) 50%, rgba(255, 255, 255, 0.08) 70%);
+  background-size: 200% 100%;
+  animation: paymentCardsSkeletonShimmer 1.2s ease-in-out infinite;
+}
+
+@keyframes paymentCardsSkeletonShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+.cardPageHistoryEmpty {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 100px;
+  padding-bottom: calc(95px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
+}
+
+.cardPageHistoryInfo {
+  display: flex;
+  width: 205px;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardPageHistoryTitle {
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.cardPageHistoryText {
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 510;
+  opacity: 0.65;
+}
+
+.popupPurchaseOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10020;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(10px);
+}
+
+.popupPurchaseContainer,
+.popupWithdrawContainer {
+  position: fixed;
+  inset: 0;
+  z-index: 10021;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.popupPurchaseSheet,
+.popupWithdrawSheet {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: calc(100dvh - 66px - var(--safe-area-inset-top, env(safe-area-inset-top, 0px)));
+  max-height: calc(100dvh - 66px - var(--safe-area-inset-top, env(safe-area-inset-top, 0px)));
+  flex-direction: column;
+  overflow: hidden;
+  pointer-events: auto;
+  border-radius: 24px 24px 0 0;
+  background: #0d0c0c;
+  color: #fff;
+}
+
+.popupPurchaseHandleArea,
+.popupWithdrawHandleArea {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  width: 100%;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+}
+
+.popupPurchaseHandle,
+.popupWithdrawHandle {
+  width: 40px;
+  height: 5px;
+  flex-shrink: 0;
+  align-self: center;
+  border-radius: 100px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.popupPurchaseContent,
+.popupWithdrawContent,
+.popupEsimContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-height: 0;
+  flex: 1;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: 0 16px calc(40px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
+  scrollbar-width: none;
+}
+
+.popupWithdrawContent {
+  padding-top: 16px;
+}
+
+.popupEsimSheet {
+  background: #0d0c0c;
+}
+
+.popupEsimSheet--confirm {
+  height: auto;
+  max-height: calc(100dvh - 66px - var(--safe-area-inset-top, env(safe-area-inset-top, 0px)));
+}
+
+.popupEsimContent--confirm {
+  flex: 0 0 auto;
+  min-height: auto;
+  overflow: visible;
+  padding-top: 16px;
+}
+
+.popupPurchaseContent::-webkit-scrollbar,
+.popupWithdrawContent::-webkit-scrollbar,
+.popupEsimContent::-webkit-scrollbar {
+  display: none;
+}
+
+.popupPurchaseDisputeBtn {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 45px;
+  min-height: 45px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 24px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0.12)), #0d0c0c;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.popupWithdrawSubmitBtn--valid {
+  background: #ff3c00;
+  color: #fff;
+}
+
+.popupPurchaseDisputeBtn.popupCardPurchaseSubmitBtn--valid {
+  background: #fff;
+  color: #000;
+}
+
+.popupPurchaseDisputeBtn.newCardSubmitBtn,
+.popupPurchaseDisputeBtn.newCardSubmitBtn--valid {
+  background: #fff;
+  color: #000;
+}
+
+.popupPurchaseDisputeBtn:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.popupEsimConfirmLayout,
+.popupEsimConfirmTop {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.popupEsimConfirmHeading {
+  display: inline-flex;
+  align-self: center;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.popupEsimConfirmTitle {
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 80%;
+}
+
+.popupCardPurchaseSheet {
+  height: auto;
+  max-height: calc(100dvh - 24px - var(--safe-area-inset-top, env(safe-area-inset-top, 0px)));
+  min-height: 0;
+  border-radius: 28px 28px 0 0;
+  background:
+    linear-gradient(0deg, #080c19 0%, #080c19 100%),
+    radial-gradient(372.85% 137.08% at 0% 0%, #fff8e2 0%, #b0b6cc 67.69%, #9b96b4 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.53) 0%, rgba(0, 0, 0, 0.53) 100%),
+    radial-gradient(372.85% 137.08% at 0% 0%, #faf5e4 7.63%, #c7d0f0 62.44%, #9f99b6 100%),
+    radial-gradient(291.52% 124.72% at 4% 0%, #ffe0c1 0%, #db9f9f 63.08%, #e5937d 100%),
+    radial-gradient(216.71% 147.02% at 20.18% 0%, #ff8400 0%, #ea3f00 100%),
+    #0e0e0e;
+  background-blend-mode: normal, normal, overlay, normal, normal, normal, normal;
+}
+
+.popupCardPurchaseContent {
+  flex: 0 1 auto;
+  padding-bottom: calc(24px + var(--safe-area-inset-bottom, env(safe-area-inset-bottom, 0px)));
+}
+
+.popupCardPurchaseConfirmLayout {
+  gap: 24px;
+}
+
+.popupCardPurchaseConfirmLayout .popupEsimConfirmTop {
+  gap: 0;
+}
+
+.popupCardPurchaseConfirmLayout .popupEsimConfirmTitle {
+  line-height: 120%;
+}
+
+.popupCardPurchaseSummary {
+  display: flex;
+  align-self: stretch;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  margin-top: 60px;
+  margin-bottom: 80px;
+}
+
+.popupCardPurchaseConfirmLayout .popupEsimConfirmAmount {
+  align-items: center;
+  gap: 2px;
+  margin: 0;
+}
+
+.popupCardPurchaseConfirmLayout .popupEsimConfirmAmountText {
+  color: #fff;
+  font-family: "SF Pro";
+  font-style: normal;
+  font-weight: 700;
+  line-height: 80%;
+}
+
+.popupCardPurchaseConfirmLayout .popupEsimConfirmAmountValue {
+  font-size: 40px;
+  letter-spacing: -0.8px;
+}
+
+.popupCardPurchaseConfirmLayout .popupEsimConfirmAmountCurrency {
+  font-size: 32px;
+  letter-spacing: -0.64px;
+  opacity: 0.4;
+}
+
+.popupCardPurchaseDetails {
+  overflow: hidden;
+  display: flex;
+  width: 100%;
+  padding: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  border: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.popupCardPurchaseDetails--fee {
+  margin-top: 8px;
+}
+
+.popupCardPurchaseDetailsRow {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px;
+}
+
+.popupCardPurchaseDetailsRow::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  left: 12px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.popupCardPurchaseDetailsRow:last-child::after {
+  display: none;
+}
+
+.popupCardPurchaseDetailsLabel,
+.popupCardPurchaseDetailsValue {
+  color: #fff;
+  font-size: 14px;
+  line-height: 100%;
+  letter-spacing: 0;
+}
+
+.popupCardPurchaseDetailsLabel {
+  font-weight: 510;
+  color: rgba(255, 255, 255, 0.68);
+  opacity: 1;
+}
+
+.popupCardPurchaseDetailsValue {
+  max-width: 62%;
+  font-weight: 700;
+  color: #fff;
+  text-align: right;
+}
+
+.popupEsimConfirmButton {
+  margin-top: 0;
+}
+
+.popupWithdrawSummaryCard {
+  display: flex;
+  width: 100%;
+  height: 82px;
+  min-height: 82px;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  padding: 13px;
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.popupWithdrawSummaryLeft {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  flex-direction: column;
+  gap: 8px;
+  padding: 3px 0 0 3px;
+}
+
+.popupWithdrawSummaryAddress {
+  overflow: hidden;
+  color: rgba(255, 255, 255, 0.8);
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.accountAmount {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-weight: 700;
+}
+
+.accountAmountCurrency {
+  margin-right: 4px;
+}
+
+.popupWithdrawSummaryAmount {
+  padding: 0;
+  font-size: 24px;
+  letter-spacing: -0.44px;
+}
+
+.headerCurrency {
+  --header-currency-btn-size: 22px;
+  --header-currency-gap: 4px;
+  --header-currency-padding: 4px;
+  position: relative;
+  display: flex;
+  height: 30px;
+  align-items: center;
+  gap: var(--header-currency-gap);
+  overflow: hidden;
+  padding: var(--header-currency-padding);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.16);
+}
+
+.headerCurrencyIndicator {
+  position: absolute;
+  top: var(--header-currency-padding);
+  left: var(--header-currency-padding);
+  width: var(--header-currency-btn-size);
+  height: var(--header-currency-btn-size);
+  border-radius: 24px;
+  background: #fff;
+  transition: transform 0.3s ease;
+  pointer-events: none;
+}
+
+.headerCurrencyBtn {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  width: var(--header-currency-btn-size);
+  height: var(--header-currency-btn-size);
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 24px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.popupCardTopUpContent {
+  gap: 0;
+}
+
+.popupCardTopUpSummaryCard {
+  margin-bottom: 24px;
+}
+
+.popupCardTopUpBody,
+.popupWithdrawBody,
+.popupWithdrawField {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.popupWithdrawInputWrap {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 24px;
+  border-radius: 32px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.popupWithdrawInputField {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 510;
+}
+
+.popupWithdrawInputField::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+
+.popupWithdrawInputMaxBtn {
+  flex-shrink: 0;
+  border: 0;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 510;
+  cursor: pointer;
+}
+
+.popupWithdrawFee {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4px;
+  padding-right: 12px;
+  padding-left: 24px;
+}
+
+.popupWithdrawFeeLabel {
+  color: #ff3c00;
+  font-size: 12px;
+  font-weight: 510;
+}
+
+.popupWithdrawFooter {
+  margin-top: auto;
+  padding-top: 24px;
+}
+
+.popupCardTopUpFooter {
+  position: sticky;
+  bottom: 0;
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(13, 12, 12, 0) 0%, #0d0c0c 28px);
+}
+
+.retryButtonLabel,
+.retryButtonSpinner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  text-align: center;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.retryButtonLabel.is-hidden {
+  opacity: 0;
+  transform: scale(0.96);
+}
+
+.retryButtonSpinner {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.retryButtonSpinner.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.retryButtonSpinner::before {
+  content: "";
+  display: block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: paymentCardsRetryButtonSpin 0.8s linear infinite;
+}
+
+@keyframes paymentCardsRetryButtonSpin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.popupCardDetailsLayout {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+.popupCardDetailsSheet {
+  height: auto;
+  max-height: calc(100dvh - 66px - var(--safe-area-inset-top, env(safe-area-inset-top, 0px)));
+  border-radius: 20px 20px 0 0;
+  background:
+    linear-gradient(0deg, #080c19 0%, #080c19 100%),
+    radial-gradient(372.85% 137.08% at 0% 0%, #fff8e2 0%, #b0b6cc 67.69%, #9b96b4 100%),
+    linear-gradient(0deg, rgba(0, 0, 0, 0.53) 0%, rgba(0, 0, 0, 0.53) 100%),
+    radial-gradient(372.85% 137.08% at 0% 0%, #faf5e4 7.63%, #c7d0f0 62.44%, #9f99b6 100%),
+    radial-gradient(291.52% 124.72% at 4% 0%, #ffe0c1 0%, #db9f9f 63.08%, #e5937d 100%),
+    radial-gradient(216.71% 147.02% at 20.18% 0%, #ff8400 0%, #ea3f00 100%),
+    #0e0e0e;
+  background-blend-mode: normal, normal, overlay, normal, normal, normal, normal;
+}
+
+.popupCardDetailsPreview {
+  display: flex;
+  width: 280px;
+  height: 178px;
+  aspect-ratio: 140 / 89;
+  align-self: center;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+  border-radius: 24px;
+  background:
+    linear-gradient(0deg, #0c3682 0%, #0c3682 100%),
+    #080c19;
+}
+
+.popupCardDetailsPreviewHead {
+  display: flex;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-end;
+  gap: 16px;
+}
+
+.popupCardDetailsPreviewVisa {
+  display: flex;
+  width: 62px;
+  height: 18px;
+}
+
+.popupCardDetailsPreviewVisa svg path {
+  fill: #fff;
+}
+
+.popupCardDetailsPreviewValues {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.popupCardDetailsPreviewMeta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.popupCardDetailsValueChip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: #090d1a;
+}
+
+.popupCardDetailsValueChipText {
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 100%;
+}
+
+.popupCardDetailsValueTextBtn,
+.popupCardDetailsAddressValueTextBtn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.popupCardDetailsCopyBtn {
+  position: relative;
+  display: inline-flex;
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+}
+
+.popupCardDetailsCopyBtnIcon,
+.popupCardDetailsCopyBtnIconCopied {
+  position: absolute;
+  inset: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 150ms ease;
+}
+
+.popupCardDetailsCopyBtnIcon {
+  opacity: 0.6;
+}
+
+.popupCardDetailsCopyBtnIconCopied,
+.popupCardDetailsCopyBtn--copied .popupCardDetailsCopyBtnIcon {
+  opacity: 0;
+}
+
+.popupCardDetailsCopyBtn--copied .popupCardDetailsCopyBtnIconCopied {
+  opacity: 1;
+}
+
+.popupCardDetailsAddressBlock {
+  gap: 0;
+  margin-top: 16px;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.popupCardDetailsAddressBlock .newCardDetailsRow {
+  position: relative;
+  min-height: 40px;
+  padding: 12px;
+}
+
+.popupCardDetailsAddressBlock .newCardDetailsRow::after {
+  content: "";
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  left: 12px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.popupCardDetailsAddressBlock .newCardDetailsRow:last-child::after {
+  display: none;
+}
+
+.popupCardDetailsAddressBlock .newCardDetailsLabel,
+.popupCardDetailsAddressBlock .newCardDetailsValue {
+  font-size: 14px;
+  line-height: 100%;
+}
+
+.popupCardDetailsAddressBlock .newCardDetailsLabel {
+  color: rgba(255, 255, 255, 0.68);
+  opacity: 1;
+}
+
+.popupCardDetailsAddressBlock .newCardDetailsValue {
+  max-width: none;
+  color: #fff;
+}
+
+.popupCardDetailsAddressValue {
+  display: inline-flex;
+  min-width: 0;
+  max-width: 62%;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+}
+
+.popupCardDetailsAddressValueTextBtn {
+  overflow: hidden;
+  min-width: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.popupCardDetailsAddressCopy {
+  width: 15px;
+  height: 15px;
+}

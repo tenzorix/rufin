@@ -23,6 +23,10 @@ import WithdrawSelect from "@/pages/WithdrawSelect";
 import OfficeSelect from "@/pages/OfficeSelect";
 import Payment from "@/pages/Payment";
 import CashOrder from "@/pages/CashOrder";
+import PaymentCards from "@/payment/pages/Cards";
+import PaymentCard from "@/payment/pages/Card";
+import PaymentNewCard from "@/payment/pages/NewCard";
+import PaymentCardTopUp from "@/payment/pages/CardTopUp";
 
 function ResetCalculatorOnRouteChange() {
   const { pathname } = useLocation();
@@ -44,12 +48,16 @@ export default function Router() {
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/wallet" element={<Wallet />} />
+          <Route path="/rufin" element={<Wallet />} />
+          <Route path="/card" element={<PaymentCard />} />
           <Route path="/profile" element={<Profile />} />
         </Route>
         <Route element={<Layout showBottomNav={false} />}>
           <Route path="/turnover" element={<Turnover />} />
           <Route path="/exchange-checkout" element={<ExchangeCheckout />} />
           <Route path="/withdraw" element={<Withdraw />} />
+          <Route path="/cards" element={<PaymentCards />} />
+          <Route path="/new-card" element={<PaymentNewCard />} />
         </Route>
         <Route element={<SecondaryLayout />}>
 
@@ -65,6 +73,7 @@ export default function Router() {
           <Route path="/deposit" element={<Deposit />} />
           <Route path="/withdraw-select" element={<WithdrawSelect />} />
           <Route path="/office-select" element={<OfficeSelect />} />
+          <Route path="/card-top-up" element={<PaymentCardTopUp />} />
           <Route path="/cash-deposit" element={<CashOrder mode="deposit" />} />
           <Route path="/cash-withdraw" element={<CashOrder mode="withdraw" />} />
           <Route path="/ref-share" element={<RefShare />} />

@@ -1,16 +1,9 @@
 import { NavLink, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
-import { WalletIcon } from "@/assets/icons";
+import { QRScanIcon, WalletIcon } from "@/assets/icons";
+import RufinIcon from "@/assets/icons/RufinIcon";
+import StockIcon from "@/assets/icons/StockIcon";
 
-
-const HomeIcon = () => {
-  return (
-    <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M9.28643 19.3923H14.7136V13.5207C14.7136 13.2943 14.6432 13.1113 14.5025 12.9715C14.3685 12.8317 14.1843 12.7618 13.9497 12.7618H10.0603C9.8258 12.7618 9.63819 12.8317 9.49749 12.9715C9.35678 13.1113 9.28643 13.2943 9.28643 13.5207V19.3923ZM3.13568 18.8031V10.8745L11.397 3.99429C11.799 3.65478 12.201 3.65478 12.603 3.99429L20.8643 10.8745V18.8031C20.8643 19.4955 20.6633 20.0347 20.2613 20.4208C19.866 20.8069 19.3166 21 18.6131 21H5.39698C4.68677 21 4.13065 20.8069 3.72864 20.4208C3.33333 20.0347 3.13568 19.4955 3.13568 18.8031ZM0.864322 10.6648C0.596315 10.6648 0.38526 10.5849 0.231156 10.4251C0.0770519 10.2587 0 10.0723 0 9.86591C0 9.60628 0.107203 9.38992 0.321608 9.21683L10.794 0.479315C11.1692 0.159772 11.5712 0 12 0C12.4288 0 12.8308 0.159772 13.206 0.479315L23.6784 9.21683C23.8928 9.38992 24 9.60628 24 9.86591C24 10.0723 23.9229 10.2587 23.7688 10.4251C23.6214 10.5849 23.4104 10.6648 23.1357 10.6648C22.995 10.6648 22.8643 10.6315 22.7437 10.5649C22.6298 10.4983 22.5226 10.4251 22.4221 10.3452L12.3518 1.94722C12.2446 1.85402 12.1273 1.80742 12 1.80742C11.8727 1.80742 11.7554 1.85402 11.6482 1.94722L1.58794 10.3452C1.48074 10.4251 1.36683 10.4983 1.24623 10.5649C1.13233 10.6315 1.00503 10.6648 0.864322 10.6648ZM18.5427 5.36234V2.97575C18.5427 2.75606 18.6097 2.58298 18.7437 2.45649C18.8777 2.32335 19.0519 2.25678 19.2663 2.25678H20.3417C20.5628 2.25678 20.737 2.32335 20.8643 2.45649C20.9983 2.58298 21.0653 2.75606 21.0653 2.97575V7.47931L18.5427 5.36234Z" fill="white" />
-    </svg>
-
-  )
-}
 const UserIcon = () => {
   return (
     <svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,7 +21,7 @@ const getActiveIndex = (
     (item) => item.matchPaths?.includes(pathname) ?? item.to === pathname
   );
 
-  return index >= 0 ? index : 1;
+  return index >= 0 ? index : 3;
 };
 
 const BottomNav = () => {
@@ -36,27 +29,29 @@ const BottomNav = () => {
   const { pathname } = useLocation();
   const navItems = [
     { to: "/wallet", icon: WalletIcon, label: t("nav.wallet") },
-    { to: "/", icon: HomeIcon, label: t("nav.home"), matchPaths: ["/", "/home"] as string[] },
+    { to: "/rufin", icon: RufinIcon, label: t("nav.rufin") },
+    { to: "/payment", icon: QRScanIcon, label: t("nav.scan"), center: true },
+    { to: "/", icon: StockIcon, label: t("nav.exchange"), matchPaths: ["/", "/home"] as string[] },
     { to: "/profile", icon: UserIcon, label: t("nav.profile") },
   ];
   const activeIndex = getActiveIndex(pathname, navItems);
 
   return (
     <nav
-      className="fixed bottom-0 left-0 right-0 z-50 px-[64px] pt-2"
+      className="fixed bottom-0 left-0 right-0 z-50 px-4 pt-2"
       style={{
         paddingBottom:
           "max(12px, calc(var(--tg-viewport-safe-area-inset-bottom, 0px) + var(--tg-viewport-content-safe-area-inset-bottom, 0px)))",
       }}
     >
       <div
-        className="mx-auto flex h-[62px] w-[248px] items-center justify-around rounded-[37px] p-[1.5px]"
+        className="mx-auto flex h-[62px] w-full max-w-md items-center justify-around rounded-[39px]"
         style={{
           background: "transparent",
         }}
       >
         <div
-          className="relative h-full w-full rounded-[35.5px] p-1"
+          className="relative h-full w-full rounded-[37.5px]"
           style={{
             background: "rgba(26, 27, 34, 0.2)",
             backdropFilter: "blur(12px)",
@@ -64,10 +59,11 @@ const BottomNav = () => {
             boxShadow: "inset 0 1px 0 0 rgba(255,255,255,0.06), 0 8px 32px rgba(0,0,0,0.4)",
           }}
         >
-          <div className="pointer-events-none absolute inset-1">
+          <div className="pointer-events-none absolute inset-y-1 left-1 right-1">
             <div
-              className="h-full w-1/3 rounded-[32px] bg-white/12 transition-transform duration-300 ease-out"
+              className="h-full rounded-[34px] bg-white/12 transition-transform duration-300 ease-out"
               style={{
+                width: "20%",
                 transform: `translateX(${activeIndex * 100}%)`,
                 boxShadow: "0 0 14px 4px rgba(255,255,255,0.07), inset 0 1px 0 0 rgba(255,255,255,0.15)",
                 backdropFilter: "blur(8px)",
@@ -75,23 +71,38 @@ const BottomNav = () => {
               }}
             />
           </div>
-          <div className="relative z-10 grid h-full grid-cols-3">
-            {navItems.map(({ to, icon: Icon, label, matchPaths }) => {
+          <div className="relative z-10 grid h-full grid-cols-5 px-1">
+            {navItems.map(({ to, icon: Icon, label, matchPaths, center }) => {
               const isActive =
                 matchPaths?.includes(pathname) ?? pathname === to;
+
               return (
                 <NavLink
                   key={to}
                   to={to}
+                  aria-label={label}
                   className={() =>
-                    `flex flex-col items-center justify-center gap-0.5 rounded-[32px] transition-colors duration-200 ${isActive ? "text-white" : "text-white/80 hover:text-white"
+                    `flex h-[54px] flex-col items-center justify-center gap-0.5 self-center rounded-[34px] transition-colors duration-200 ${
+                      isActive ? "text-white" : "text-white/80 hover:text-white"
                     }`
                   }
                 >
-                  <span className="inline-flex size-6 items-center justify-center text-white [&_svg]:h-6 [&_svg]:w-6">
-                    <Icon />
-                  </span>
-                  <span className="text-[10px] font-medium">{label}</span>
+                  {center ? (
+                    <span className="flex h-16 w-16 aspect-square shrink-0 flex-col items-center justify-center gap-1 rounded-[39px] bg-white text-black shadow-[0_4px_12px_0_rgba(255,255,255,0.25)]">
+                      <span className="flex h-5 w-5 aspect-square shrink-0 items-center justify-center [&_svg]:h-5 [&_svg]:w-5">
+                        <Icon />
+                      </span>
+                    </span>
+                  ) : (
+                    <>
+                      <span className="inline-flex size-6 -translate-y-px items-center justify-center text-white [&_svg]:max-h-6 [&_svg]:w-auto">
+                        <Icon />
+                      </span>
+                      <span className="max-w-full -translate-y-px truncate px-1 text-[10px] font-medium leading-none">
+                        {label}
+                      </span>
+                    </>
+                  )}
                 </NavLink>
               );
             })}
