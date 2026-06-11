@@ -6,6 +6,7 @@ import Layout from "@/components/shared/Layout";
 import Profile from "@/pages/Profile";
 import Turnover from "@/pages/Turnover";
 import Wallet from "@/pages/Wallet";
+import Exchange from "@/pages/Exchange";
 import ExchangeCheckout from "@/pages/ExchangeCheckout";
 import KYC from "@/pages/KYC";
 import Referral from "@/pages/Referral";
@@ -41,14 +42,14 @@ function ResetCalculatorOnRouteChange() {
 
 export default function Router() {
   return (
-    <MemoryRouter>
+    <MemoryRouter initialEntries={["/wallet"]}>
       <ResetCalculatorOnRouteChange />
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/home" element={<Home />} />
           <Route path="/wallet" element={<Wallet />} />
-          <Route path="/rufin" element={<Wallet />} />
+          <Route path="/rufin" element={<Exchange />} />
           <Route path="/card" element={<PaymentCard />} />
           <Route path="/profile" element={<Profile />} />
         </Route>

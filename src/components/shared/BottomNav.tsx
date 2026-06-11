@@ -1,7 +1,7 @@
 import { NavLink, useLocation } from "react-router";
 import { useTranslation } from "react-i18next";
 import { QRScanIcon, WalletIcon } from "@/assets/icons";
-import RufinIcon from "@/assets/icons/RufinIcon";
+import ExchangeIcon from "@/assets/icons/ExchangeIcon";
 import StockIcon from "@/assets/icons/StockIcon";
 
 const UserIcon = () => {
@@ -29,7 +29,7 @@ const BottomNav = () => {
   const { pathname } = useLocation();
   const navItems = [
     { to: "/wallet", icon: WalletIcon, label: t("nav.wallet") },
-    { to: "/rufin", icon: RufinIcon, label: t("nav.rufin") },
+    { to: "/rufin", icon: ExchangeIcon, label: t("nav.rufin") },
     { to: "/payment", icon: QRScanIcon, label: t("nav.scan"), center: true },
     { to: "/", icon: StockIcon, label: t("nav.exchange"), matchPaths: ["/", "/home"] as string[] },
     { to: "/profile", icon: UserIcon, label: t("nav.profile") },
